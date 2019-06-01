@@ -515,7 +515,7 @@ void SoftFFmpegVideo::initPacket(AVPacket *pkt,
 }
 
 int32_t SoftFFmpegVideo::decodeVideo() {
-    int len = 0, err = 0;
+    int err = 0;
     int gotPic = false;
     int32_t ret = ERR_OK;
     List<BufferInfo *> &inQueue = getPortQueue(kInputPortIndex);
@@ -591,8 +591,10 @@ int32_t SoftFFmpegVideo::drainOneOutputBuffer() {
 
     uint32_t bufferWidth = outputBufferWidth();
     uint32_t bufferHeight = outputBufferHeight();
+#if DEBUG_FRM
     uint32_t frameWidth = mFrame->width;
     uint32_t frameHeight = mFrame->height;
+#endif
 
     data[0] = dst;
     data[1] = dst + bufferWidth * bufferHeight;

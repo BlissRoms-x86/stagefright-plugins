@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include "ffmpeg_source.h"
 
-#include <media/stagefright/DataSource.h>
+#include <media/DataSource.h>
 
 extern "C" {
 
